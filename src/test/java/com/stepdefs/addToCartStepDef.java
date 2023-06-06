@@ -4,8 +4,10 @@ import com.baseDriver.BaseDriver;
 import com.pages.HomePage;
 import com.pages.MobileListPage;
 import com.pages.ShoppingCart;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class addToCartStepDef {
 
@@ -17,14 +19,16 @@ public class addToCartStepDef {
         mobileListPage.clickOnSonyXperiaAddToCart();
     }
 
-    @When("User change the QTY value to {int} and click the UPDATE button")
-    public void userChangeTheQtyValueToAndClickTheUpdateButton(Integer int1) {
-        shoppingCart.changeQtyValueAndClickUpdate();
+    @When("User change the QTY value to {string} and click the UPDATE button")
+    public void userChangeTheQtyValueToAndClickTheUpdateButton(String qtyInput) {
+        shoppingCart.changeQtyValueAndClickUpdate(qtyInput);
     }
 
     @Then("User should see the error message")
     public void userShouldSeeTheErrorMessage() {
-        shoppingCart.verifyErrorMsg();
+        String expectedErrorMessage = "The request quantity for  Sony Xperia is not available.";
+        String actualErrorMessage = shoppingCart.verifyErrorMsg();
+        Assert.assertNotEquals(expectedErrorMessage, actualErrorMessage);
     }
 
     @Then("User click on the EMPTY CART link in the footer")

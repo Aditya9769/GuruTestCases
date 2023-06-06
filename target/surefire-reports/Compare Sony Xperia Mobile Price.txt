@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: Compare Sony Xperia Mobile Price
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 38.582 s - in Compare Sony Xperia Mobile Price

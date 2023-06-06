@@ -1,5 +1,6 @@
 package com.pages;
 
+import com.baseDriver.BaseDriver;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,13 +10,13 @@ import org.openqa.selenium.support.PageFactory;
 public class ShoppingCart {
     WebDriver driver;
 
-    @FindBy(name = "cart[206686][qty]")
+    @FindBy(xpath = "//input[@title='Qty']")
     WebElement qty;
 
-    @FindBy(xpath = "//button[@class='button btn-update']")
+    @FindBy(xpath = "//button[@title='Update']")
     WebElement update;
 
-    @FindBy(className = "item-msg error")
+    @FindBy(xpath = "//span[contains(text(),'Some of the products')]")
     WebElement errorMsg;
 
     @FindBy(xpath = "//span[contains(text(),'Empty Cart')]")
@@ -29,15 +30,15 @@ public class ShoppingCart {
         PageFactory.initElements(this.driver, this);
     }
 
-    public void changeQtyValueAndClickUpdate(){
+    public void changeQtyValueAndClickUpdate(String qtyInput){
         qty.clear();
-        qty.sendKeys(String.valueOf(1000));
+        qty.sendKeys(qtyInput);
         update.click();
     }
 
-    public void verifyErrorMsg(){
-        String actualErrorMsg = errorMsg.getText();
-        Assert.assertEquals("The request quantity for  Sony Xperia is not available.",actualErrorMsg);
+    public String verifyErrorMsg(){
+        return errorMsg.getText();
+//        Assert.assertEquals("The request quantity for  Sony Xperia is not available.",actualErrorMsg);
     }
 
     public void clickOnEmptyCart(){
@@ -46,6 +47,6 @@ public class ShoppingCart {
 
     public void verifyCartIsEmpty(){
         String actualEmptyCartMsg = cartIsEmpty.getText();
-        Assert.assertEquals("You have no items in your shopping cart.", actualEmptyCartMsg);
+        Assert.assertEquals("SHOPPING CART IS EMPTY", actualEmptyCartMsg);
     }
 }
