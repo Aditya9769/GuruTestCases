@@ -1,15 +1,15 @@
 package com.stepdefs;
 
 import com.baseDriver.BaseDriver;
-import com.pages.HomePage;
-import com.pages.MobileListPage;
+import com.pages.homePage;
+import com.pages.mobileListPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class sortByStepDef {
-    HomePage homePage =  new HomePage(BaseDriver.getDriver());
-    MobileListPage mobileListPage = new MobileListPage(BaseDriver.getDriver());
+    com.pages.homePage homePage =  new homePage(BaseDriver.getDriver());
+    com.pages.mobileListPage mobileListPage = new mobileListPage(BaseDriver.getDriver());
 
     @Given("User is on the Homepage")
     public void userIsOnTheHomepage() {

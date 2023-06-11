@@ -1,18 +1,16 @@
 package com.stepdefs;
 
 import com.baseDriver.BaseDriver;
-import com.pages.HomePage;
-import com.pages.MobileListPage;
-import com.pages.ShoppingCart;
-import io.cucumber.java.en.Given;
+import com.pages.mobileListPage;
+import com.pages.shoppingCart;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class addToCartStepDef {
 
-    MobileListPage mobileListPage = new MobileListPage(BaseDriver.getDriver());
-    ShoppingCart shoppingCart = new ShoppingCart(BaseDriver.getDriver());
+    com.pages.mobileListPage mobileListPage = new mobileListPage(BaseDriver.getDriver());
+    com.pages.shoppingCart shoppingCart = new shoppingCart(BaseDriver.getDriver());
 
     @When("User click on ADD TO CART for the Sony Xperia mobile")
     public void userClickOnAddToCartForTheSonyXperiaMobile() {

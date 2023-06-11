@@ -33,6 +33,14 @@ public class ApplicationHooks {
 
     }
 
+    @Before(order = 1)
+    public void launchEdgeBrowser() {
+        String browser = prop.getProperty("browser1");
+        baseDriver = new BaseDriver();
+        driver = baseDriver.initializeBrowser(browser);
+
+    }
+
     @After(order = 0)
     public void quitBrowser() {
         driver.quit();

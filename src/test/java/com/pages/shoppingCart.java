@@ -1,13 +1,12 @@
 package com.pages;
 
-import com.baseDriver.BaseDriver;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ShoppingCart {
+public class shoppingCart {
     WebDriver driver;
 
     @FindBy(xpath = "//input[@title='Qty']")
@@ -25,7 +24,10 @@ public class ShoppingCart {
     @FindBy(xpath = "//h1[contains(text(),'Shopping Cart is Empty')]")
     WebElement cartIsEmpty;
 
-    public ShoppingCart(WebDriver driver) {
+    @FindBy(xpath = "//ul[@class='checkout-types top']//button[@title='Proceed to Checkout']")
+    WebElement ProceedToCheckout;
+
+    public shoppingCart(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
     }
@@ -48,5 +50,9 @@ public class ShoppingCart {
     public void verifyCartIsEmpty(){
         String actualEmptyCartMsg = cartIsEmpty.getText();
         Assert.assertEquals("SHOPPING CART IS EMPTY", actualEmptyCartMsg);
+    }
+
+    public void clickProceedToCheckout(){
+        ProceedToCheckout.click();
     }
 }

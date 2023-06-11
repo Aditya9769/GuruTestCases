@@ -1,16 +1,15 @@
 package com.stepdefs;
 
 import com.baseDriver.BaseDriver;
-import com.pages.HomePage;
-import com.pages.MobileListPage;
-import com.pages.SonyXperiaDetailPage;
+import com.pages.mobileListPage;
+import com.pages.sonyXperiaDetailPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class listPageStepDef {
 
-    MobileListPage mobileListPage = new MobileListPage(BaseDriver.getDriver());
-    SonyXperiaDetailPage sonyXperiaDetailPage = new SonyXperiaDetailPage(BaseDriver.getDriver());
+    com.pages.mobileListPage mobileListPage = new mobileListPage(BaseDriver.getDriver());
+    com.pages.sonyXperiaDetailPage sonyXperiaDetailPage = new sonyXperiaDetailPage(BaseDriver.getDriver());
 
     @When("User note the price of Sony Xperia Mobile")
     public void userNoteThePriceOfSonyXperiaMobile() {

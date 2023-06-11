@@ -5,21 +5,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class tvMenu {
     WebDriver driver;
 
-    @FindBy(xpath = "//a[normalize-space()='Mobile']")
-    WebElement mobileMenu;
+    @FindBy(xpath = "//li[1]//div[1]//div[3]//ul[1]//li[1]//a[1]")
+    WebElement LgAddToWishlist;
 
-    public HomePage(WebDriver driver){
+    public tvMenu(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
     }
 
-    public String gethomePageTitle(){
-        return driver.getTitle();
-    }
-    public void clickOnMobileMenu(){
-        mobileMenu.click();
+    public void addToWishlist(){
+        LgAddToWishlist.click();
     }
 }

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MobileListPage {
+public class mobileListPage {
 
     WebDriver driver;
     @FindBy(xpath = "//body/div/div/div/div/div/div/div/div/div/div/select[1]")
@@ -27,7 +27,16 @@ public class MobileListPage {
     @FindBy(xpath = "//button[contains(@onclick,'product/1/')]")
     WebElement SonyXperiaAddToCart;
 
-    public MobileListPage(WebDriver driver) {
+    @FindBy(xpath = "//h2[@class='product-name']/a")
+    List<WebElement> mobileList;
+
+    @FindBy(xpath = "//a[contains(text(),'Compare')]")
+    List<WebElement> addToCompareButtons;
+
+    @FindBy(xpath = "//button[@title='Compare']")
+    WebElement compareButton;
+
+    public mobileListPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
     }
@@ -60,5 +69,16 @@ public class MobileListPage {
 
     public void clickOnSonyXperiaAddToCart(){
         SonyXperiaAddToCart.click();
+    }
+
+    public void clickAddToCompareForTwoMobiles() {
+        if (addToCompareButtons.size() >= 2) {
+            addToCompareButtons.get(1).click();
+            addToCompareButtons.get(2).click();
+        }
+    }
+
+    public void clickCompareButton() {
+        compareButton.click();
     }
 }

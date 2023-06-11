@@ -7,14 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SonyXperiaDetailPage{
+public class sonyXperiaDetailPage {
     WebDriver driver;
-    MobileListPage mobileListPage = new MobileListPage(BaseDriver.getDriver());
+    com.pages.mobileListPage mobileListPage = new mobileListPage(BaseDriver.getDriver());
 
     @FindBy(className = "price")
     WebElement DetailPagePrice;
 
-    public SonyXperiaDetailPage(WebDriver driver) {
+    public sonyXperiaDetailPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
     }
